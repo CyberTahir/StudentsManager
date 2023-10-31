@@ -18,5 +18,12 @@ namespace StudentsManager.Controllers
             var students = await Db.Students.ToArrayAsync();
             return View(students);
         }
+
+        public IActionResult Edit()
+        {
+
+
+            return View();
+        }
     }
 }
