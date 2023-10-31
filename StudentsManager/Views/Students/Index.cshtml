@@ -1,0 +1,16 @@
+﻿@using StudentsManager.DAL.Entities
+@model IEnumerable<Student>
+
+<div>
+    <ol class="list-group">
+        @foreach (var student in Model)
+        {
+            <li class="list-group-item">
+                <p class="stud-id">Id: @student.Id</p>
+                <p class="stud-name">Full name: @student.LastName @student.Name @student.Patronymic</p>
+
+                <a class="btn btn-primary" asp-controller="Students" asp-action="Edit">Edit</a>
+            </li>
+        }
+    </ol>
+</div>
