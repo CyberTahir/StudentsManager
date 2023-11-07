@@ -1,16 +1,17 @@
+using DAL.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using StudentsManager.DAL.Context;
 using StudentsManager.DAL.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
-var db_connection_str = builder.Configuration.GetConnectionString("default");
+var db_connection_str = builder.Configuration.GetConnectionString("sqlite");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentsDBContext>(opts =>
 {
-    opts.UseSqlServer(db_connection_str);
+    // opts.UseSqlServer(db_connection_str);
+    opts.UseSqlite(db_connection_str);
 });
 
 var app = builder.Build();

@@ -1,4 +1,4 @@
-﻿using StudentsManager.DAL.Entities.Base;
+﻿using DAL.Entities;
 
 namespace StudentsManager.DAL.Entities
 {

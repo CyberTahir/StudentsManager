@@ -1,15 +1,26 @@
-﻿@using StudentsManager.DAL.Entities
-@model IEnumerable<Student>
+﻿﻿@using DAL.Entities
+@model IEnumerable<StudentView>
+@{
+    ViewData["Title"] = "Index";
+}
 
 <div>
+    <div>
+        <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="0">Create student</a>
+    </div>
+
     <ol class="list-group">
         @foreach (var student in Model)
         {
             <li class="list-group-item">
-                <p class="stud-id">Id: @student.Id</p>
-                <p class="stud-name">Full name: @student.LastName @student.Name @student.Patronymic</p>
+                <p class="stud">
+                    @student.Id.
+                    <span class="stud-name">
+                        @student.LastName @student.Name @student.Patronymic
+                    </span>
+                </p>
 
-                <a class="btn btn-primary" asp-controller="Students" asp-action="Edit">Edit</a>
+                <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
             </li>
         }
     </ol>
